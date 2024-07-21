@@ -32,3 +32,18 @@ if (require.main === module) {
 }
 
 module.exports = hasTargetSum;
+function hasTargetSum(array, target) {
+  let seenNumbers = new Set();
+  
+  for (let num of array) {
+      let complement = target - num;
+      
+      if (seenNumbers.has(complement)) {
+          return true;
+      }
+      
+      seenNumbers.add(num);
+  }
+  
+  return false;
+}
